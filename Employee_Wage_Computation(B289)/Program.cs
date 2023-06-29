@@ -6,29 +6,35 @@ namespace Employee_Wage_Computation
     {
         static void Main(string[] args)
         {
-            int empHrs = 0, empWage = 0;
-            const int EMP_RATE_PER_HR = 20, IS_FULL_TIME = 1, IS_PART_TIME = 2;
+            int empHrs = 0, empWage = 0, totalWage = 0, day = 0;
+            const int EMP_RATE_PER_HR = 20, IS_FULL_TIME = 1, IS_PART_TIME = 2, NUM_OF_WORKING_DAYS = 20;
 
             Console.WriteLine("Welcome to Employee Wage Computation Problem!");
             Random random = new Random();
-            int empAttendance = random.Next(0, 3); //0 to 2
-            switch (empAttendance)
+            for (day = 1; day <= NUM_OF_WORKING_DAYS; day++)
             {
-                case IS_FULL_TIME:
-                    Console.WriteLine("Employee is Full-time Present");
-                    empHrs = 8;
-                    break;
-                case IS_PART_TIME:
-                    Console.WriteLine("Employee is Part-time Present");
-                    empHrs = 4;
-                    break;
-                default:
-                    Console.WriteLine("Employee is Absent");
-                    empHrs = 0;
-                    break;
+                int empAttendance = random.Next(0, 3); //0 to 2
+                switch (empAttendance)
+                {
+                    case IS_FULL_TIME:
+                        Console.WriteLine("Employee is Full-time Present");
+                        empHrs = 8;
+                        break;
+                    case IS_PART_TIME:
+                        Console.WriteLine("Employee is Part-time Present");
+                        empHrs = 4;
+                        break;
+                    default:
+                        Console.WriteLine("Employee is Absent");
+                        empHrs = 0;
+                        break;
+                }
+
+                empWage = EMP_RATE_PER_HR * empHrs;
+                Console.WriteLine("Employee Wage for day{0} is: {1} ", day, empWage);
+                totalWage += empWage;
             }
-            empWage = EMP_RATE_PER_HR * empHrs;
-            Console.WriteLine("Employee Daily Wage is: " + empWage);
+            Console.WriteLine("Totla Wage for {0} days in a Month is: {1} ", (day - 1), totalWage);
         }
     }
 }
