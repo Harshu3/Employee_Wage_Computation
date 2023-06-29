@@ -6,7 +6,7 @@ namespace Employee_Wage_Computation
     {
         static void Main(string[] args)
         {
-            int empHrs = 0, isPresent = 1, empWage = 0;
+            int empHrs = 0, empWage = 0;
             const int EMP_RATE_PER_HR = 20, IS_FULL_TIME = 1, IS_PART_TIME = 2;
 
             Console.WriteLine("Welcome to Employee Wage Computation Problem!");
